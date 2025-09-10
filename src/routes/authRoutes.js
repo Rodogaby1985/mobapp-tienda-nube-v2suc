@@ -1,5 +1,4 @@
-// src/routes/authRoutes.js v3.0
-// Variante SUCURSAL (solo crea opciones SUC, todas type 'ship')
+// src/routes/authRoutes.js v3.0 (VARIANTE SUCURSAL)
 const express = require('express');
 const router = express.Router();
 const oauthClient = require('../utils/oauthClient');
@@ -56,4 +55,5 @@ router.get('/oauth_callback', async (req, res) => {
 });
 
 module.exports = router;
+
 
