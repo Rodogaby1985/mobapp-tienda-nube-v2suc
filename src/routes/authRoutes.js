@@ -5,6 +5,10 @@ const oauthClient = require('../utils/oauthClient');
 const tiendaNubeService = require('../services/tiendaNubeService');
 const crypto = require('crypto');
 
+router.get('/', (req, res) => {
+  res.send("API Mobapp Sucursal funcionando. Ve a /install para instalar en Tienda Nube.");
+});
+
 router.get('/install', (req, res) => {
   const state = crypto.randomBytes(16).toString('hex');
   req.session.oauth_state = state;
@@ -55,5 +59,6 @@ router.get('/oauth_callback', async (req, res) => {
 });
 
 module.exports = router;
+
 
 
