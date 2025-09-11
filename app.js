@@ -9,8 +9,17 @@ const { loadAllSheetDataIntoCache } = require('./src/services/googleSheetsServic
 
 require('dotenv').config();
 
+const express = require('express');
+require('dotenv').config();
+
 const app = express();
-const port = process.env.PORT || 3000;
+
+const PORT = Number(process.env.PORT) || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
+
+app.listen(PORT, HOST, () => {
+  console.log(`Servidor escuchando en http://${HOST}:${PORT}`);
+});
 const MODALIDAD = process.env.MODALIDAD || 'sucursal';
 
 app.use(bodyParser.json());
@@ -53,3 +62,4 @@ app.listen(port, async () => {
     logger.error('Error al cargar datos iniciales en cache: ' + e.message);
   }
 });
+
